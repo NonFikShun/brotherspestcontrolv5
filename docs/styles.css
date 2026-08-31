@@ -4,14 +4,12 @@
    ========================================================= */
 
 :root {
-  --authority-green: #0B7A4B;
-  --deep-field-green: #0A5236;
   --charcoal-ink: #15191C;
+  --charcoal-deep: #0A0B0C;
   --pure-white: #FFFFFF;
-  --emblem-navy: #1F3864;
-  --review-gold: #D9A441;
-  --review-gold-on-light: #826227; /* WCAG AA text-safe gold for use on white/fog backgrounds (5.6:1) */
-  --review-gold-on-dark: #F9BC4A;  /* WCAG AA text-safe gold for use on dark green/charcoal backgrounds (5.4:1+) */
+  --accent-orange: #C24A0C;         /* text/UI on light backgrounds; icons on dark backgrounds (3:1 threshold) */
+  --accent-orange-deep: #93390A;    /* solid fills paired with white text/icons (7.4:1 on white) */
+  --accent-orange-on-dark: #F0743A; /* text-sized accent content on charcoal backgrounds (6.1:1) */
   --fog-gray: #F4F6F5;
   --slate-gray: #5B6670;
 
@@ -24,14 +22,14 @@
   --radius-lg: 16px;
   --shadow-sm: 0 1px 3px rgba(21, 25, 28, 0.08), 0 1px 2px rgba(21, 25, 28, 0.06);
   --shadow-md: 0 4px 12px rgba(21, 25, 28, 0.10), 0 2px 4px rgba(21, 25, 28, 0.06);
-  --shadow-lg: 0 12px 32px rgba(10, 82, 54, 0.16), 0 4px 10px rgba(21, 25, 28, 0.08);
+  --shadow-lg: 0 12px 32px rgba(147, 57, 10, 0.16), 0 4px 10px rgba(21, 25, 28, 0.08);
   --transition-fast: 160ms ease;
   --transition-med: 260ms ease;
 }
 
 /* ---------- Reset ---------- */
 * , *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -39,6 +37,9 @@ body {
   background: var(--pure-white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -74,7 +75,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 3px solid var(--review-gold);
+  outline: 3px solid var(--accent-orange);
   outline-offset: 2px;
 }
 
@@ -84,13 +85,13 @@ summary:focus-visible {
 }
 .section--tight { padding: 48px 0; }
 .section--dark {
-  background: linear-gradient(160deg, var(--deep-field-green) 0%, var(--charcoal-ink) 100%);
+  background: linear-gradient(160deg, var(--charcoal-ink) 0%, var(--charcoal-deep) 100%);
   color: var(--pure-white);
 }
 .section--dark h2, .section--dark h3, .section--dark p { color: var(--pure-white); }
 .section--fog { background: var(--fog-gray); }
 .section--green {
-  background: linear-gradient(135deg, var(--authority-green) 0%, var(--deep-field-green) 100%);
+  background: linear-gradient(135deg, var(--charcoal-ink) 0%, var(--charcoal-deep) 100%);
   color: var(--pure-white);
 }
 .section--green h2, .section--green h3, .section--green p { color: var(--pure-white); }
@@ -107,14 +108,14 @@ summary:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--authority-green);
-  background: rgba(11, 122, 75, 0.09);
+  color: var(--accent-orange);
+  background: rgba(194, 74, 12, 0.09);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 16px;
 }
 .section--dark .eyebrow, .section--green .eyebrow {
-  color: var(--review-gold-on-dark);
+  color: var(--accent-orange-on-dark);
   background: rgba(255,255,255,0.12);
 }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
@@ -137,7 +138,7 @@ summary:focus-visible {
   white-space: nowrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--authority-green), var(--deep-field-green));
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   box-shadow: var(--shadow-sm);
 }
@@ -178,7 +179,7 @@ summary:focus-visible {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(120deg, var(--deep-field-green) 0%, var(--charcoal-ink) 100%);
+  background: linear-gradient(120deg, var(--charcoal-ink) 0%, var(--charcoal-deep) 100%);
   box-shadow: var(--shadow-md);
 }
 .header-inner {
@@ -201,7 +202,7 @@ summary:focus-visible {
   border-radius: 50%;
   overflow: hidden;
   background: var(--pure-white);
-  border: 2px solid var(--review-gold);
+  border: 2px solid var(--accent-orange);
   flex-shrink: 0;
   box-shadow: var(--shadow-sm);
 }
@@ -226,7 +227,7 @@ summary:focus-visible {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--review-gold-on-dark);
+  color: var(--accent-orange-on-dark);
   font-weight: 600;
 }
 
@@ -250,7 +251,7 @@ summary:focus-visible {
 }
 .main-nav a[aria-current="page"] {
   color: var(--pure-white);
-  background: rgba(11, 122, 75, 0.55);
+  background: rgba(147, 57, 10, 0.55);
 }
 
 .header-cta {
@@ -298,8 +299,8 @@ summary:focus-visible {
 /* ---------- Hero ---------- */
 .hero {
   background:
-    radial-gradient(circle at 85% -10%, rgba(217, 164, 65, 0.18), transparent 55%),
-    linear-gradient(150deg, var(--deep-field-green) 0%, var(--charcoal-ink) 100%);
+    radial-gradient(circle at 85% -10%, rgba(194, 74, 12, 0.18), transparent 55%),
+    linear-gradient(150deg, var(--charcoal-ink) 0%, var(--charcoal-deep) 100%);
   color: var(--pure-white);
   padding: 88px 0 80px;
 }
@@ -325,9 +326,9 @@ summary:focus-visible {
   align-items: center;
   gap: 10px;
   margin-top: 28px;
-  background: rgba(217, 164, 65, 0.14);
-  border: 1px solid rgba(217, 164, 65, 0.5);
-  color: var(--review-gold-on-dark);
+  background: rgba(194, 74, 12, 0.14);
+  border: 1px solid rgba(194, 74, 12, 0.5);
+  color: var(--accent-orange-on-dark);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.95rem;
@@ -348,7 +349,7 @@ summary:focus-visible {
   border-radius: 50%;
   overflow: hidden;
   background: var(--pure-white);
-  border: 4px solid var(--review-gold);
+  border: 4px solid var(--accent-orange);
   box-shadow: var(--shadow-lg);
 }
 .hero-media-badge img { width: 100%; height: 100%; object-fit: cover; }
@@ -370,7 +371,7 @@ summary:focus-visible {
   justify-content: center;
   width: 22px; height: 22px;
   border-radius: 50%;
-  background: var(--authority-green);
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   font-size: 0.78rem;
   flex-shrink: 0;
@@ -390,17 +391,17 @@ summary:focus-visible {
   font-size: 1rem;
   letter-spacing: 0.01em;
 }
-.value-strip strong { color: var(--review-gold); }
+.value-strip strong { color: var(--accent-orange-on-dark); }
 
 /* ---------- Page header (interior pages) ---------- */
 .page-header {
-  background: linear-gradient(150deg, var(--deep-field-green) 0%, var(--charcoal-ink) 100%);
+  background: linear-gradient(150deg, var(--charcoal-ink) 0%, var(--charcoal-deep) 100%);
   color: var(--pure-white);
   padding: 68px 0 56px;
   text-align: center;
 }
 .page-header .eyebrow {
-  color: var(--review-gold-on-dark);
+  color: var(--accent-orange-on-dark);
   background: rgba(255,255,255,0.12);
 }
 .page-header h1 {
@@ -444,7 +445,7 @@ summary:focus-visible {
 .card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(11, 122, 75, 0.35);
+  border-color: rgba(194, 74, 12, 0.35);
 }
 .card-icon {
   width: 56px;
@@ -453,7 +454,7 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--authority-green), var(--deep-field-green));
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   font-size: 1.5rem;
   margin-bottom: 18px;
@@ -474,7 +475,7 @@ summary:focus-visible {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--authority-green);
+  color: var(--accent-orange);
 }
 .card-link::after { content: "→"; transition: transform var(--transition-fast); }
 .card:hover .card-link::after { transform: translateX(4px); }
@@ -520,7 +521,7 @@ summary:focus-visible {
   justify-content: center;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--authority-green), var(--deep-field-green));
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   font-family: var(--font-heading);
   font-weight: 800;
@@ -531,7 +532,7 @@ summary:focus-visible {
 
 /* CTA banner */
 .cta-banner {
-  background: linear-gradient(135deg, var(--authority-green), var(--deep-field-green));
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-deep));
   color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 48px 40px;
@@ -546,11 +547,11 @@ summary:focus-visible {
 }
 .cta-banner .btn-secondary:hover {
   background: var(--pure-white);
-  color: var(--deep-field-green);
+  color: var(--accent-orange-deep);
 }
 .cta-banner .btn-primary {
   background: var(--pure-white);
-  color: var(--deep-field-green);
+  color: var(--accent-orange-deep);
 }
 .cta-banner .btn-primary:hover {
   background: var(--fog-gray);
@@ -561,8 +562,8 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(217, 164, 65, 0.12);
-  border: 1px solid rgba(217, 164, 65, 0.4);
+  background: rgba(194, 74, 12, 0.12);
+  border: 1px solid rgba(194, 74, 12, 0.4);
   border-radius: var(--radius-lg);
   padding: 24px 28px;
   font-family: var(--font-heading);
@@ -585,8 +586,8 @@ summary:focus-visible {
 }
 .area-state-group h3 {
   font-family: var(--font-heading);
-  color: var(--emblem-navy);
-  border-bottom: 2px solid var(--emblem-navy);
+  color: var(--accent-orange);
+  border-bottom: 2px solid var(--accent-orange);
   display: inline-block;
   padding-bottom: 6px;
   margin-bottom: 20px;
@@ -608,13 +609,13 @@ summary:focus-visible {
   transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
 .area-city-card:hover {
-  border-color: var(--authority-green);
+  border-color: var(--accent-orange);
   transform: translateY(-3px);
 }
 .area-city-card .pin {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--emblem-navy);
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -668,10 +669,10 @@ summary:focus-visible {
   padding: 30px 26px;
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(21,25,28,0.08);
-  border-top: 4px solid var(--review-gold);
+  border-top: 4px solid var(--accent-orange);
 }
 .stars {
-  color: var(--review-gold-on-light);
+  color: var(--accent-orange);
   font-size: 1.05rem;
   letter-spacing: 2px;
   margin-bottom: 14px;
@@ -685,14 +686,14 @@ summary:focus-visible {
 .testimonial-card .author {
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--deep-field-green);
+  color: var(--accent-orange-deep);
   font-size: 0.92rem;
 }
 
 /* Why-choose-us / About page commitment / licensed callout */
 .commitment-block {
   background: var(--fog-gray);
-  border-left: 4px solid var(--authority-green);
+  border-left: 4px solid var(--accent-orange);
   border-radius: var(--radius-md);
   padding: 32px;
   margin: 40px 0;
@@ -701,7 +702,7 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: var(--emblem-navy);
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 26px 30px;
@@ -751,14 +752,14 @@ summary:focus-visible {
   width: 30px; height: 30px;
   border-radius: 50%;
   background: var(--fog-gray);
-  color: var(--authority-green);
+  color: var(--accent-orange);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem;
   transition: transform var(--transition-med), background var(--transition-med);
 }
 .faq-item[data-open="true"] .faq-question .plus {
   transform: rotate(45deg);
-  background: var(--authority-green);
+  background: var(--accent-orange-deep);
   color: var(--pure-white);
 }
 .faq-answer {
@@ -784,7 +785,7 @@ summary:focus-visible {
   align-items: start;
 }
 .contact-info-card {
-  background: linear-gradient(150deg, var(--deep-field-green), var(--charcoal-ink));
+  background: linear-gradient(150deg, var(--charcoal-ink), var(--charcoal-deep));
   color: var(--pure-white);
   border-radius: var(--radius-lg);
   padding: 36px 30px;
@@ -807,7 +808,7 @@ summary:focus-visible {
   background: rgba(255,255,255,0.12);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  color: var(--review-gold-on-dark);
+  color: var(--accent-orange-on-dark);
 }
 .contact-info-list a, .contact-info-list span.value {
   font-family: var(--font-heading);
@@ -859,8 +860,8 @@ summary:focus-visible {
 }
 .field input:focus, .field textarea:focus {
   outline: none;
-  border-color: var(--authority-green);
-  box-shadow: 0 0 0 3px rgba(11, 122, 75, 0.15);
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(194, 74, 12, 0.15);
 }
 .field textarea { resize: vertical; min-height: 130px; }
 .form-note {
@@ -872,9 +873,9 @@ summary:focus-visible {
   display: none;
   align-items: center;
   gap: 12px;
-  background: rgba(11, 122, 75, 0.10);
-  border: 1px solid rgba(11, 122, 75, 0.35);
-  color: var(--deep-field-green);
+  background: rgba(194, 74, 12, 0.10);
+  border: 1px solid rgba(194, 74, 12, 0.35);
+  color: var(--accent-orange-deep);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   font-family: var(--font-heading);
@@ -887,7 +888,7 @@ summary:focus-visible {
 }
 .map-list h3 {
   text-align: center;
-  color: var(--emblem-navy);
+  color: var(--accent-orange);
 }
 
 /* ---------- Footer ---------- */
@@ -896,7 +897,7 @@ summary:focus-visible {
   color: rgba(255,255,255,0.82);
 }
 .trust-bar {
-  background: var(--deep-field-green);
+  background: var(--charcoal-deep);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .trust-bar-inner {
@@ -919,11 +920,11 @@ summary:focus-visible {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   font-size: 1.1rem;
-  color: var(--review-gold-on-dark);
+  color: var(--accent-orange-on-dark);
 }
-.trust-item.quote-item .icon { color: var(--review-gold-on-dark); }
+.trust-item.quote-item .icon { color: var(--accent-orange-on-dark); }
 .trust-item strong { display: block; font-family: var(--font-heading); }
-.trust-item .stars-mini { color: var(--review-gold-on-dark); letter-spacing: 1px; font-size: 0.85rem; }
+.trust-item .stars-mini { color: var(--accent-orange-on-dark); letter-spacing: 1px; font-size: 0.85rem; }
 
 .footer-columns {
   display: grid;
@@ -938,7 +939,7 @@ summary:focus-visible {
   margin-bottom: 16px;
 }
 .footer-brand .brand-badge {
-  border-color: var(--review-gold);
+  border-color: var(--accent-orange);
 }
 .footer-brand .brand-word strong { color: var(--pure-white); }
 .footer-col h4 {
