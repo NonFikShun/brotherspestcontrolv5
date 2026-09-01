@@ -156,11 +156,11 @@ summary:focus-visible {
   color: var(--pure-white);
   transform: translateY(-2px);
 }
-.section--dark .btn-secondary, .section--green .btn-secondary {
+.section--dark .btn-secondary, .section--green .btn-secondary, .hero .btn-secondary {
   color: var(--pure-white);
   border-color: rgba(255,255,255,0.6);
 }
-.section--dark .btn-secondary:hover, .section--green .btn-secondary:hover {
+.section--dark .btn-secondary:hover, .section--green .btn-secondary:hover, .hero .btn-secondary:hover {
   background: var(--pure-white);
   color: var(--charcoal-ink);
 }
@@ -282,6 +282,8 @@ summary:focus-visible {
 
 .nav-toggle {
   display: none;
+  flex-direction: column;
+  justify-content: center;
   background: transparent;
   border: 2px solid rgba(255,255,255,0.5);
   border-radius: var(--radius-sm);
