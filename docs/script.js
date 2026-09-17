@@ -1,6 +1,22 @@
 /* Brothers Pest Control — Template v5 shared behavior */
 
 document.addEventListener("DOMContentLoaded", function () {
+  /* Announcement banner dismiss (remembered for the browser tab/session) */
+  var announcementBar = document.getElementById("announcement-bar");
+  var announcementClose = document.getElementById("announcement-close");
+  if (announcementBar && announcementClose) {
+    var dismissedKey = "bpc-announcement-dismissed";
+    try {
+      if (sessionStorage.getItem(dismissedKey) === "true") {
+        announcementBar.classList.add("is-dismissed");
+      }
+    } catch (err) { /* storage unavailable — banner just stays visible */ }
+    announcementClose.addEventListener("click", function () {
+      announcementBar.classList.add("is-dismissed");
+      try { sessionStorage.setItem(dismissedKey, "true"); } catch (err) {}
+    });
+  }
+
   /* Mobile nav toggle */
   var header = document.querySelector(".site-header");
   var navToggle = document.querySelector(".nav-toggle");
