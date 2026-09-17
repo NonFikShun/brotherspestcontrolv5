@@ -12,6 +12,8 @@
   --accent-green-on-dark: #22C55E; /* text-sized accent content on charcoal backgrounds (6.1:1) */
   --fog-gray: #F4F6F5;
   --slate-gray: #5B6670;
+  --notice-gold: #D9A441;          /* temporary site-notice banners */
+  --notice-gold-deep: #B9862F;
 
   --font-heading: "Archivo", sans-serif;
   --font-body: "Source Sans 3", sans-serif;
@@ -172,6 +174,72 @@ summary:focus-visible {
   flex-wrap: wrap;
   gap: 16px;
   align-items: center;
+}
+
+/* ---------- Site Announcement Banner (temporary notices) ---------- */
+.announcement-bar {
+  background: var(--notice-gold);
+  color: var(--charcoal-ink);
+  border-bottom: 3px solid var(--notice-gold-deep);
+  position: relative;
+}
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 48px;
+  text-align: center;
+}
+.announcement-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.announcement-text {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 880px;
+}
+.announcement-text strong {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+.announcement-text a {
+  color: var(--charcoal-ink);
+  text-decoration: underline;
+  font-weight: 700;
+}
+.announcement-close {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--charcoal-ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+.announcement-close:hover,
+.announcement-close:focus-visible {
+  background: rgba(21, 25, 28, 0.12);
+}
+.announcement-bar.is-dismissed { display: none; }
+
+@media (max-width: 640px) {
+  .announcement-inner { padding: 10px 40px 10px 16px; text-align: left; }
+  .announcement-icon { display: none; }
+  .announcement-text { font-size: 0.84rem; }
+  .announcement-close { right: 6px; }
 }
 
 /* ---------- Header ---------- */
