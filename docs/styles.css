@@ -627,6 +627,19 @@ summary:focus-visible {
   background: var(--fog-gray);
 }
 
+/* Appointment-request disclaimer (shown near booking CTAs) */
+.disclaimer-note {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.cta-banner .disclaimer-note {
+  text-align: center;
+  color: rgba(255,255,255,0.8);
+  margin-top: 18px;
+}
+
 /* Discount callout banner (services page) */
 .discount-banner {
   display: flex;
