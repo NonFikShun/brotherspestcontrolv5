@@ -1284,3 +1284,87 @@ a.area-city-card--link span:not(.pin) { color: var(--accent-green); }
   .guarantee-panel { padding: 24px 20px; }
   .feature-band { flex-direction: column; align-items: flex-start; }
 }
+
+/* Hero: Google rating badge sits under the logo box (right column) */
+.hero-side { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.hero-side .hero-media { width: 100%; }
+.hero-side .rating-badge { margin-bottom: 0; }
+@media (max-width: 980px) {
+  .hero-side { order: -1; }
+}
+
+/* Services: termite sub-section gets its own spaced header with a divider */
+.subsection-head {
+  margin-top: 72px;
+  padding-top: 64px;
+  border-top: 1px solid rgba(21,25,28,0.1);
+}
+@media (max-width: 640px) {
+  .subsection-head { margin-top: 48px; padding-top: 44px; }
+}
+
+/* Termite letters page: header CTAs, overlapping fact strip, report cards, split row */
+.page-header--with-cta { padding-bottom: 120px; }
+.header-cta-row { justify-content: center; margin-top: 28px; }
+.fact-strip { position: relative; margin-top: -64px; padding-bottom: 8px; }
+.fact-strip .fact-tile { box-shadow: var(--shadow-md); }
+.report-card {
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--accent-green);
+}
+.report-state {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 10px;
+}
+.report-card p { margin-bottom: 20px; }
+.report-license {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(21,25,28,0.08);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--charcoal-ink);
+}
+.split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+.split-2 .testimonial-card { display: flex; flex-direction: column; justify-content: center; }
+.testimonial-more { margin: 18px 0 0; }
+.info-panel .eyebrow { margin-bottom: 12px; align-self: flex-start; }
+.info-panel h3 { font-size: 1.35rem; margin-bottom: 16px; }
+.info-panel .check-list { margin-bottom: 24px; }
+.info-panel:hover { transform: none; }
+@media (max-width: 980px) {
+  .split-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .page-header--with-cta { padding-bottom: 96px; }
+  .fact-strip { margin-top: -56px; }
+}
+.page-header .btn-secondary { color: var(--pure-white); border-color: rgba(255,255,255,0.6); }
+.page-header .btn-secondary:hover { background: var(--pure-white); color: var(--charcoal-ink); }
+@media (max-width: 640px) {
+  .fact-strip .fact-tiles { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .fact-strip .fact-tile { padding: 18px 12px; }
+  .fact-strip .fact-tile strong { font-size: 1.3rem; }
+  .fact-strip .fact-tile span { font-size: 0.85rem; }
+}
+
+/* Service area: only linked town cards react on hover */
+.area-city-card:not(a):hover { border-color: rgba(21,25,28,0.08); transform: none; }
+a.area-city-card--link { cursor: pointer; }
+a.area-city-card--link:hover { box-shadow: var(--shadow-md); }
+
+/* Footer trust bar: four items (review quote removed), centered as a group */
+.trust-bar-inner { grid-template-columns: repeat(4, auto); justify-content: center; column-gap: 56px; }
+@media (max-width: 980px) {
+  .trust-bar-inner { grid-template-columns: repeat(2, auto); column-gap: 40px; }
+}
+@media (max-width: 640px) {
+  .trust-bar-inner { grid-template-columns: auto; }
+}
