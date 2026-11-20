@@ -1286,7 +1286,7 @@ a.area-city-card--link span:not(.pin) { color: var(--accent-green); }
 }
 
 /* Hero: Google rating badge sits under the logo box (right column) */
-.hero-side { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.hero-side { display: flex; flex-direction: column; align-items: center; gap: 28px; }
 .hero-side .hero-media { width: 100%; }
 .hero-side .rating-badge { margin-bottom: 0; }
 @media (max-width: 980px) {
@@ -1368,3 +1368,21 @@ a.area-city-card--link:hover { box-shadow: var(--shadow-md); }
 @media (max-width: 640px) {
   .trust-bar-inner { grid-template-columns: auto; }
 }
+
+/* Termite letters header: more room above the buttons, centered, outlined Call button like the homepage */
+.page-header .header-cta-row { margin-top: 40px; justify-content: center; }
+.page-header .header-cta-row .btn-secondary {
+  background: transparent;
+  color: var(--pure-white);
+  border-color: rgba(255,255,255,0.6);
+}
+.page-header .header-cta-row .btn-secondary:hover { background: var(--pure-white); color: var(--charcoal-ink); }
+
+/* Spacing pass: give headings, lists and button rows room to breathe */
+.cta-banner h2 + .btn-row { margin-top: 24px; }
+.check-list + .btn-row, .check-list + p { margin-top: 24px; }
+.info-card h3, .info-panel h3 { margin-bottom: 16px; }
+.info-panel .check-list { margin-bottom: 0; }
+.check-list { gap: 12px; }
+.guarantee-terms h4 { margin-bottom: 8px; }
+.map-list h3 { margin-bottom: 18px; }
